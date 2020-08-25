@@ -1,0 +1,9 @@
+debug: true
+mybatis:
+  type-aliases-package: com.lottery.generator.dto
+spring:
+   datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://172.18.3.60:3309/mkcp?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8
+      username: mkcp_demo
+      password: oracle

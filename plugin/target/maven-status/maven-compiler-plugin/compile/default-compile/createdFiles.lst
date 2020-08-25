@@ -1,0 +1,4 @@
+com\lottery\generator\plugin\CustomerJavaTypeResolver.class
+com\lottery\generator\plugin\LombokPlugin$Annotations.class
+com\lottery\generator\plugin\AnnotationAddPlugin.class
+com\lottery\generator\plugin\LombokPlugin.class

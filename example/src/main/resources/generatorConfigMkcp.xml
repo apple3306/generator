@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+    PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+    "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <properties resource="generatorConfig.properties"/>
+    <context defaultModelType="flat" id="testTables" targetRuntime="MyBatis3">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="javaFileEncoding" value="UTF-8"/>
+        <!--        <plugin type="org.mybatis.generator.plugins.FluentBuilderMethodsPlugin"/>-->
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+        <plugin type="com.lottery.generator.plugin.AnnotationAddPlugin"/>
+        <plugin type="com.lottery.generator.plugin.LombokPlugin">
+            <!-- enable annotations -->
+<!--            <property name="builder" value="true"/>-->
+<!--            &lt;!&ndash; annotation's option(String) &ndash;&gt;-->
+<!--            <property name="builder.builderMethodName" value="builder"/>-->
+
+<!--            <property name="accessors" value="true"/>-->
+<!--            &lt;!&ndash; annotation's option(array of String) &ndash;&gt;-->
+<!--            <property name="accessors.prefix" value="m_, _"/>-->
+<!--            <property name="accessors.chain" value="true"/>-->
+
+            <!-- disable annotations -->
+            <property name="allArgsConstructor" value="false"/>
+        </plugin>
+        <commentGenerator>
+            <property name="suppressAllComments" value="false"/>
+            <property name="addRemarkComments" value="true"/>
+        </commentGenerator>
+
+        <!-- 数据库连接信息 -->
+        <jdbcConnection connectionURL="${jdbc.url}" driverClass="${jdbc.driver}"
+            password="${jdbc.password}" userId="${jdbc.user}">
+        </jdbcConnection>
+
+        <javaTypeResolver type="com.lottery.generator.plugin.CustomerJavaTypeResolver">
+            <!--
+            true：使用BigDecimal对应DECIMAL和 NUMERIC数据类型
+            false：默认,
+               scale>0;length>18：使用BigDecimal;
+               scale=0;length[10,18]：使用Long；
+               scale=0;length[5,9]：使用Integer；
+               scale=0;length<5：使用Short；
+             -->
+            <property name="forceBigDecimals" value="false"/>
+            <property name="useJSR310Types" value="true"/>
+        </javaTypeResolver>
+
+        <!-- 生成的 Model 包路径 -->
+        <javaModelGenerator targetPackage="${model.target.package}"
+            targetProject="${model.target.project}">
+            <property name="enableSubPackages" value="false"/>
+            <property name="trimStrings" value="true"/>
+            <!--<property name="constructorBased" value="true"/>-->
+            <!--<property name="immutable" value="true"/>-->
+        </javaModelGenerator>
+
+        <!-- 生成的 Mapper 路径 -->
+        <sqlMapGenerator targetPackage="${mapper.target.package}"
+            targetProject="${mapper.target.project}"/>
+
+        <!-- 生成的 DAO 接口路径-->
+        <javaClientGenerator targetPackage="${dao.target.package}" targetProject="${dao.target.project}"
+            type="XMLMAPPER"/>
+
+        <!-- 要生成的数据库表名 mkcp-->
+        <table tableName="t_%">
+            <generatedKey column="id" identity="true" sqlStatement="MySql"/>
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+
+        <table tableName="t_ticket_label">
+            <generatedKey column="label_id" identity="true" sqlStatement="MySql"/>
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+
+        <table tableName="t_bonus_rate_reduce">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_bonus_reduce_rate">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_double_play">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_double_play_item">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_double_play_label">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_double_play_location">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_play">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_play_group">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_play_level">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_play_solo_blockade">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_play_solo_setting">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_series">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_source">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_ticket_type">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+        <table tableName="t_sec_menu">
+            <domainObjectRenamingRule searchString="^T" replaceString=""/>
+        </table>
+    </context>
+</generatorConfiguration>

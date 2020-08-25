@@ -1,0 +1,3 @@
+com\lottery\generator\example\dto\ext\MemberAndMerchant.class
+com\lottery\generator\example\dao\ext\MemberExMapper.class
+com\lottery\generator\example\GeneratorExampleApplication.class
